@@ -1,0 +1,61 @@
+Candidate: Venkata
+
+Problem Statement#1:
+
+Find most frequently occurring word(s) along with its frequency in given statement
+Example Input: "Xyz is employee of ABC company, XYZ is from blore, XYZ! is good in java."
+
+Enrichments:
+	1. Remove special chars
+	2. Lowercasing the statement
+	3. Maintain ordering
+
+
+Problem Statement#2:
+
+Implement a simple calculator with below requirement. Pick a design pattern to build your solution and explain why?
+- Input(s) to be taken from user
+- Should support minimum +, -, * and / operations
+- Should be extensible to support more operations in future
+
+14 + 5 * 3 - 2 / 5
+
+
+Problem Statement#3:
+
+Employee Table:
+	id
+	name
+	department
+	Project
+	Address
+	DOB
+	Gender
+
+EmployeePosition Table:
+	id
+	EmpPosition
+	DateOfJoining
+	Salary
+
+- Write a query to fetch all employee name and their salary for highest 2 salary
+
+select * Employee e join
+
+- Write a query to fetch the department-wise count of employees sorted by department’s count in ascending order
+
+
+SELECT e.department, count(*) as Count FROM Employee e group by e.department order by Count;
+
+
+SELECT e.id, e.name, es.salary FROM Employee e, EmployeeSalary es where e.id = es.id order by es.salary desc limit 1 offset 1;
+
+
+SELECT e.id, e.name, es.salary FROM Employee e, EmployeeSalary es where e.id = es.id and es.salary >= (
+  SELECT es.salary FROM Employee e, EmployeeSalary es where e.id = es.id order by es.salary desc limit 1 offset 1
+);
+
+
+
+
+
